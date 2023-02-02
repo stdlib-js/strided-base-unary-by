@@ -1,6 +1,6 @@
 {
   "name": "@stdlib/strided-base-unary-by",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Apply a unary function to each element retrieved from a strided input array according to a callback function and assign results to a strided output array.",
   "license": "Apache-2.0",
   "author": {
