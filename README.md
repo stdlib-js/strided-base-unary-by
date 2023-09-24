@@ -50,13 +50,13 @@ limitations under the License.
 ## Usage
 
 ```javascript
-import unaryBy from 'https://cdn.jsdelivr.net/gh/stdlib-js/strided-base-unary-by@deno/mod.js';
+import unaryBy from 'https://cdn.jsdelivr.net/gh/stdlib-js/strided-base-unary-by@v0.1.0-deno/mod.js';
 ```
 
 You can also import the following named exports from the package:
 
 ```javascript
-import { ndarray } from 'https://cdn.jsdelivr.net/gh/stdlib-js/strided-base-unary-by@deno/mod.js';
+import { ndarray } from 'https://cdn.jsdelivr.net/gh/stdlib-js/strided-base-unary-by@v0.1.0-deno/mod.js';
 ```
 
 #### unaryBy( arrays, shape, strides, fcn, clbk\[, thisArg] )
@@ -232,7 +232,7 @@ var discreteUniform = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/random-bas
 import filledarray from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-filled@deno/mod.js';
 import filledarrayBy from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-filled-by@deno/mod.js';
 import abs from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-abs@deno/mod.js';
-import unaryBy from 'https://cdn.jsdelivr.net/gh/stdlib-js/strided-base-unary-by@deno/mod.js';
+import unaryBy from 'https://cdn.jsdelivr.net/gh/stdlib-js/strided-base-unary-by@v0.1.0-deno/mod.js';
 
 function accessor( v, i ) {
     if ( (i%3) === 0 ) {
