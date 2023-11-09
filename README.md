@@ -43,20 +43,30 @@ limitations under the License.
 
 <!-- /.intro -->
 
+<section class="installation">
 
+## Installation
+
+```bash
+npm install @stdlib/strided-base-unary-by
+```
+
+Alternatively,
+
+-   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm` branch][esm-url].
+-   If you are using Deno, visit the [`deno` branch][deno-url].
+-   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd` branch][umd-url].
+
+The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
+
+</section>
 
 <section class="usage">
 
 ## Usage
 
 ```javascript
-import unaryBy from 'https://cdn.jsdelivr.net/gh/stdlib-js/strided-base-unary-by@esm/index.mjs';
-```
-
-You can also import the following named exports from the package:
-
-```javascript
-import { ndarray } from 'https://cdn.jsdelivr.net/gh/stdlib-js/strided-base-unary-by@esm/index.mjs';
+var unaryBy = require( '@stdlib/strided-base-unary-by' );
 ```
 
 #### unaryBy( arrays, shape, strides, fcn, clbk\[, thisArg] )
@@ -64,7 +74,7 @@ import { ndarray } from 'https://cdn.jsdelivr.net/gh/stdlib-js/strided-base-unar
 Applies a unary function to each element retrieved from a strided input array according to a callback function and assigns results to a strided output array.
 
 ```javascript
-import abs from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-abs@esm/index.mjs';
+var abs = require( '@stdlib/math-base-special-abs' );
 
 function accessor( v ) {
     return v * 2.0;
@@ -96,7 +106,7 @@ The invoked callback function is provided four arguments:
 To set the callback execution context, provide a `thisArg`.
 
 ```javascript
-import abs from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-abs@esm/index.mjs';
+var abs = require( '@stdlib/math-base-special-abs' );
 
 function accessor( v ) {
     this.count += 1;
@@ -120,7 +130,7 @@ var cnt = context.count;
 The `shape` and `stride` parameters determine which elements in the input and output strided arrays are accessed at runtime. For example, to index every other value in `x` and to index the first `N` elements of `y` in reverse order,
 
 ```javascript
-import abs from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-abs@esm/index.mjs';
+var abs = require( '@stdlib/math-base-special-abs' );
 
 function accessor( v ) {
     return v * 2.0;
@@ -136,8 +146,8 @@ unaryBy( [ x, y ], [ 3 ], [ 2, -1 ], abs, accessor );
 Note that indexing is relative to the first index. To introduce an offset, use [`typed array`][mdn-typed-array] views.
 
 ```javascript
-import Float64Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-float64@esm/index.mjs';
-import abs from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-abs@esm/index.mjs';
+var Float64Array = require( '@stdlib/array-float64' );
+var abs = require( '@stdlib/math-base-special-abs' );
 
 function accessor( v ) {
     return v * 2.0;
@@ -160,7 +170,7 @@ unaryBy( [ x1, y1 ], [ 3 ], [ -2, 1 ], abs, accessor );
 Applies a unary function to each element retrieved from a strided input array according to a callback function and assigns results to a strided output array using alternative indexing semantics.
 
 ```javascript
-import abs from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-abs@esm/index.mjs';
+var abs = require( '@stdlib/math-base-special-abs' );
 
 function accessor( v ) {
     return v * 2.0;
@@ -180,7 +190,7 @@ The function accepts the following additional arguments:
 While [`typed array`][mdn-typed-array] views mandate a view offset based on the underlying `buffer`, the `offsets` parameter supports indexing semantics based on starting indices. For example, to index every other value in `x` starting from the second value and to index the last `N` elements in `y` in reverse order,
 
 ```javascript
-import abs from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-abs@esm/index.mjs';
+var abs = require( '@stdlib/math-base-special-abs' );
 
 function accessor( v ) {
     return v * 2.0;
@@ -204,7 +214,7 @@ unaryBy.ndarray( [ x, y ], [ 3 ], [ 2, -1 ], [ 1, y.length-1 ], abs, accessor );
 -   If a provided callback function does not return any value (or equivalently, explicitly returns `undefined`), the value is **ignored**.
 
     ```javascript
-    import abs from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-abs@esm/index.mjs';
+    var abs = require( '@stdlib/math-base-special-abs' );
 
     function accessor() {
         // No-op...
@@ -227,17 +237,12 @@ unaryBy.ndarray( [ x, y ], [ 3 ], [ 2, -1 ], [ 1, y.length-1 ], abs, accessor );
 
 <!-- eslint no-undef: "error" -->
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<body>
-<script type="module">
-
-var discreteUniform = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-discrete-uniform' ).factory;
-import filledarray from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-filled@esm/index.mjs';
-import filledarrayBy from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-filled-by@esm/index.mjs';
-import abs from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-abs@esm/index.mjs';
-import unaryBy from 'https://cdn.jsdelivr.net/gh/stdlib-js/strided-base-unary-by@esm/index.mjs';
+```javascript
+var discreteUniform = require( '@stdlib/random-base-discrete-uniform' ).factory;
+var filledarray = require( '@stdlib/array-filled' );
+var filledarrayBy = require( '@stdlib/array-filled-by' );
+var abs = require( '@stdlib/math-base-special-abs' );
+var unaryBy = require( '@stdlib/strided-base-unary-by' );
 
 function accessor( v, i ) {
     if ( (i%3) === 0 ) {
@@ -261,10 +266,6 @@ var offsets = [ 0, N-1 ];
 
 unaryBy.ndarray( [ x, y ], shape, strides, offsets, abs, accessor );
 console.log( y );
-
-</script>
-</body>
-</html>
 ```
 
 </section>
@@ -274,6 +275,13 @@ console.log( y );
 <!-- Section for related `stdlib` packages. Do not manually edit this section, as it is automatically populated. -->
 
 <section class="related">
+
+* * *
+
+## See Also
+
+-   <span class="package-name">[`@stdlib/strided-base/map-by`][@stdlib/strided/base/map-by]</span><span class="delimiter">: </span><span class="description">apply a unary function to each element retrieved from a strided input array according to a callback function and assign results to a strided output array.</span>
+-   <span class="package-name">[`@stdlib/strided-base/unary`][@stdlib/strided/base/unary]</span><span class="delimiter">: </span><span class="description">apply a unary callback to elements in a strided input array and assign results to elements in a strided output array.</span>
 
 </section>
 
@@ -288,7 +296,7 @@ console.log( y );
 
 ## Notice
 
-This package is part of [stdlib][stdlib], a standard library with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
+This package is part of [stdlib][stdlib], a standard library for JavaScript and Node.js, with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
 
 For more information on the project, filing bug reports and feature requests, and guidance on how to develop [stdlib][stdlib], see the main project [repository][stdlib].
 
@@ -349,6 +357,14 @@ Copyright &copy; 2016-2023. The Stdlib [Authors][stdlib-authors].
 [stdlib-license]: https://raw.githubusercontent.com/stdlib-js/strided-base-unary-by/main/LICENSE
 
 [mdn-typed-array]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray
+
+<!-- <related-links> -->
+
+[@stdlib/strided/base/map-by]: https://github.com/stdlib-js/strided-base-map-by
+
+[@stdlib/strided/base/unary]: https://github.com/stdlib-js/strided-base-unary
+
+<!-- </related-links> -->
 
 </section>
 
