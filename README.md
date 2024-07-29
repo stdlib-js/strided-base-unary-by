@@ -50,13 +50,13 @@ limitations under the License.
 ## Usage
 
 ```javascript
-import unaryBy from 'https://cdn.jsdelivr.net/gh/stdlib-js/strided-base-unary-by@esm/index.mjs';
+import unaryBy from 'https://cdn.jsdelivr.net/gh/stdlib-js/strided-base-unary-by@v0.2.2-esm/index.mjs';
 ```
 
 You can also import the following named exports from the package:
 
 ```javascript
-import { ndarray } from 'https://cdn.jsdelivr.net/gh/stdlib-js/strided-base-unary-by@esm/index.mjs';
+import { ndarray } from 'https://cdn.jsdelivr.net/gh/stdlib-js/strided-base-unary-by@v0.2.2-esm/index.mjs';
 ```
 
 #### unaryBy( arrays, shape, strides, fcn, clbk\[, thisArg] )
@@ -237,7 +237,7 @@ var discreteUniform = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/random-bas
 import filledarray from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-filled@esm/index.mjs';
 import filledarrayBy from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-filled-by@esm/index.mjs';
 import abs from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-abs@esm/index.mjs';
-import unaryBy from 'https://cdn.jsdelivr.net/gh/stdlib-js/strided-base-unary-by@esm/index.mjs';
+import unaryBy from 'https://cdn.jsdelivr.net/gh/stdlib-js/strided-base-unary-by@v0.2.2-esm/index.mjs';
 
 function accessor( v, i ) {
     if ( (i%3) === 0 ) {
